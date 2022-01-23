@@ -1,4 +1,4 @@
-### Site the demonstrates how to share code between two page components
+### This site demonstrates how to share code between two page components
 
 ## Todo
 
