@@ -1,8 +1,3 @@
-- .. siteManager
-	- InfoBox
-		- with styled components
-			- VSCode extension
-			
 - itemPageManager
 	- search
 	- URL modification

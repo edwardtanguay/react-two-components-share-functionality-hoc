@@ -1,6 +1,5 @@
-const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA, InfoBox}) => {
+const PageEmployees = ({getLocalUK, getLocalUSA, InfoBox}) => {
 
-	const sum = addNumbers(1, 2);
 	const ukEmployees = getLocalUK();
 	const usaEmployees = getLocalUSA();
 
@@ -8,7 +7,6 @@ const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA, InfoBox}) => {
 		<>
 			<h1>Employees</h1>
 			<p>This is the customer page.</p>
-			<p>The sum is: {sum}</p>
 			<h2>UK Employees</h2>
 			<ul>
 			{ukEmployees.map((emp,i) => {
