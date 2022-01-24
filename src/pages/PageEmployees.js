@@ -1,4 +1,4 @@
-const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA}) => {
+const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA, InfoBox}) => {
 
 	const sum = addNumbers(1, 2);
 	const ukEmployees = getLocalUK();
@@ -26,7 +26,7 @@ const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA}) => {
 			})}
 			</ul>
 			<h2>Example of component from parent</h2>
-			{/* <Infobox/> */}
+			<InfoBox content="This should work."/>
 		</>
 	)
 }
