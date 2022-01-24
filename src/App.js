@@ -6,7 +6,7 @@ import PageEmployees from './pages/PageEmployees';
 import PageCustomers from './pages/PageCustomers';
 import { pageEnhancer } from './pages/pageEnhancer';
 
-const EnhancedPageEmployees = pageEnhancer(PageEmployees);
+const EnhancedPageEmployees = pageEnhancer(PageEmployees); 
 
 function App() {
 	return (

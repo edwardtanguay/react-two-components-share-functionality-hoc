@@ -11,20 +11,22 @@ const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA}) => {
 			<p>The sum is: {sum}</p>
 			<h2>UK Employees</h2>
 			<ul>
-			{ukEmployees.map(emp => {
+			{ukEmployees.map((emp,i) => {
 				return (
-					<li>{emp.firstName} {emp.lastName}</li>
+					<li key={i}>{emp.firstName} {emp.lastName}</li>
 				)
 			})}
 			</ul>
 			<h2>USA Employees</h2>
 			<ul>
-			{usaEmployees.map(emp => {
+			{usaEmployees.map((emp,i) => {
 				return (
-					<li>{emp.firstName} {emp.lastName}</li>
+					<li key={i}>{emp.firstName} {emp.lastName}</li>
 				)
 			})}
 			</ul>
+			<h2>Example of component from parent</h2>
+			{/* <Infobox/> */}
 		</>
 	)
 }
