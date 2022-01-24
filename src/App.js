@@ -5,8 +5,9 @@ import PageHome from './pages/PageHome';
 import PageEmployees from './pages/PageEmployees';
 import PageCustomers from './pages/PageCustomers';
 import { pageEnhancer } from './pages/pageEnhancer';
+import { siteManager } from './managers/siteManager';
 
-const EnhancedPageEmployees = pageEnhancer(PageEmployees); 
+const EnhancedPageEmployees = siteManager(pageEnhancer(PageEmployees)); 
 
 function App() {
 	return (

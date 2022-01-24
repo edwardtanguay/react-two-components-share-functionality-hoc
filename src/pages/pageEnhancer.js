@@ -1,14 +1,5 @@
 import employees from '../data/employees.json';
 
-const InfoBox = ({ content }) => {
-	return (
-		<div className="info">
-			<div className="header">Info</div>
-			<div className="body">{content}</div>
-		</div>
-	)
-}
-
 const addNumbers = (a, b) => {
 	return a + b;
 }
@@ -23,6 +14,6 @@ const getLocalUSA = () => {
 
 export const pageEnhancer = Component => {
 	return (props) => {
-		return <Component {...props} addNumbers={addNumbers} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} InfoBox={InfoBox} />
+		return <Component {...props} addNumbers={addNumbers} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} />
 	}
 }

@@ -1,0 +1,14 @@
+- .. siteManager
+	- InfoBox
+		- with styled components
+			- VSCode extension
+			
+- itemPageManager
+	- search
+	- URL modification
+	- etc. (see items-page project)
+- genericDataManager
+	- (parameter URL for API)
+- dataManagers
+	- getEmployees
+	- getCustomers
