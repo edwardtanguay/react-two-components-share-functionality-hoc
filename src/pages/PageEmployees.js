@@ -26,7 +26,7 @@ const PageEmployees = ({addNumbers, getLocalUK, getLocalUSA, InfoBox}) => {
 			})}
 			</ul>
 			<h2>Example of component from parent</h2>
-			<InfoBox content="This should work." status="normal"/>
+			<InfoBox content="This should work." status="normal" width="50%"/>
 		</>
 	)
 }
