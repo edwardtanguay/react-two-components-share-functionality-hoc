@@ -8,6 +8,7 @@ import { pageEnhancer } from './pages/pageEnhancer';
 import { siteManager } from './managers/siteManager';
 
 const EnhancedPageEmployees = siteManager(pageEnhancer(PageEmployees)); 
+const EnhancedPageHome = siteManager(PageHome);
 
 function App() {
 	return (
@@ -15,7 +16,7 @@ function App() {
 			<Nav />
 			<div className="content">
 				<Routes>
-					<Route path="/" element={<PageHome />} />
+					<Route path="/" element={<EnhancedPageHome />} />
 					<Route path="employees" element={<EnhancedPageEmployees />} />
 					<Route path="customers" element={<PageCustomers />} />
 				</Routes>
