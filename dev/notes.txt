@@ -1,9 +1,7 @@
+- dataManager
+	- API with state variables to tell the components when what data is loaded
+	- (parameter URL for API)
 - itemPageManager
 	- search
 	- URL modification
 	- etc. (see items-page project)
-- genericDataManager
-	- (parameter URL for API)
-- dataManagers
-	- getEmployees
-	- getCustomers

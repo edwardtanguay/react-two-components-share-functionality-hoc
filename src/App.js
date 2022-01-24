@@ -1,14 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import Nav from './components/Nav';
-import PageHome from './pages/PageHome';
-import PageEmployees from './pages/PageEmployees';
-import PageCustomers from './pages/PageCustomers';
+import _PageHome from './pages/PageHome';
+import _PageEmployees from './pages/PageEmployees';
+import _PageCustomers from './pages/PageCustomers';
 import { dataManager } from './managers/dataManager';
 import { siteManager } from './managers/siteManager';
 
-const EnhancedPageEmployees = siteManager(dataManager(PageEmployees)); 
-const EnhancedPageHome = siteManager(PageHome);
+const PageHome = siteManager(_PageHome);
+const PageEmployees = siteManager(dataManager(_PageEmployees)); 
+const PageCustomers = siteManager(dataManager(_PageCustomers)); 
 
 function App() {
 	return (
@@ -16,8 +17,8 @@ function App() {
 			<Nav />
 			<div className="content">
 				<Routes>
-					<Route path="/" element={<EnhancedPageHome />} />
-					<Route path="employees" element={<EnhancedPageEmployees />} />
+					<Route path="/" element={<PageHome />} />
+					<Route path="employees" element={<PageEmployees />} />
 					<Route path="customers" element={<PageCustomers />} />
 				</Routes>
 			</div>

@@ -1,8 +1,9 @@
-const PageCustomers = () => {
+const PageCustomers = ({InfoBox, customers}) => {
 	return (
 		<>
-			<h1>Customers</h1>
+			<h1>{customers.length} Customers</h1>
 			<p>This is the customer page.</p>
+			<InfoBox/>
 		</>
 	)
 }
