@@ -8,7 +8,7 @@ const getLocalUSA = () => {
 	return employees.filter(emp => emp.address.country === 'USA');
 }
 
-export const pageEnhancer = Component => {
+export const dataManager = Component => {
 	return (props) => {
 		return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} />
 	}

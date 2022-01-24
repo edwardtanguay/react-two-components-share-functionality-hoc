@@ -4,10 +4,10 @@ import Nav from './components/Nav';
 import PageHome from './pages/PageHome';
 import PageEmployees from './pages/PageEmployees';
 import PageCustomers from './pages/PageCustomers';
-import { pageEnhancer } from './pages/pageEnhancer';
+import { dataManager } from './managers/dataManager';
 import { siteManager } from './managers/siteManager';
 
-const EnhancedPageEmployees = siteManager(pageEnhancer(PageEmployees)); 
+const EnhancedPageEmployees = siteManager(dataManager(PageEmployees)); 
 const EnhancedPageHome = siteManager(PageHome);
 
 function App() {
