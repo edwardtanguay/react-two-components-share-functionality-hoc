@@ -6,7 +6,6 @@ const PageEmployees = ({getLocalUK, getLocalUSA, InfoBox}) => {
 	return (
 		<>
 			<h1>Employees</h1>
-			<p>This is the customer page.</p>
 			<h2>UK Employees</h2>
 			<ul>
 			{ukEmployees.map((emp,i) => {
@@ -23,8 +22,14 @@ const PageEmployees = ({getLocalUK, getLocalUSA, InfoBox}) => {
 				)
 			})}
 			</ul>
-			<h2>Example of component from parent</h2>
-			<InfoBox content="This should work." status="normal" width="50%"/>
+			<InfoBox title="Note on Employees"  width="70%">
+				<p>The two groups listed are the top selling groups among the employees. Other groups include:</p>
+				<ul>
+					<li>Spain</li>
+					<li>France</li>
+					<li>Germany</li>
+				</ul>
+			</InfoBox>
 		</>
 	)
 }
