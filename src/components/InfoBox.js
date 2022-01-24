@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -10,8 +11,9 @@ const Container = styled.div`
 	box-shadow: 0 4px 8px 0 black;
 `;
 
-const Title = styled.div`
-	background-color: ${props => props.status === 'warning' ? 'tomato !important' : '#888 !important'};
+const Header = styled.div`
+	background-color: ${props => props.status === 'warning' ? '#510505 !important' : '#888 !important'};
+	color: ${props => props.status === 'warning' ? '#d29700 !important' : '#333 !important'};
 	font-size: 1.2rem;
 	padding: 5px;
 	border-radius: 5px;
@@ -24,11 +26,41 @@ const Body = styled.div`
 	margin: 10px 0 0 0;
 `;
 
-export const InfoBox = ({ children, status, width = '300px', title="Info" }) => {
+const Button = styled.button`
+	float: right;
+	background: #bbb;
+	border-radius: 5px;
+`;
+
+const Clear = styled.div`
+	clear: both;
+`;
+
+export const InfoBox = ({ children, status = "normal", width = '300px', title = "Info", message = "", allowClosing = false }) => {
+	const [isVisible, setIsVisible] = useState(true);
+
+	const handleClose = () => {
+		setIsVisible(false);
+	}
+
 	return (
-		<Container className="infoBox" width={width}>
-			<Title status={status}>{title}</Title>
-			<Body>{children === undefined ? 'Currenly no information.' : children}</Body>
-		</Container >
+		<>
+			{isVisible && (
+				<Container className="infoBox" width={width}>
+					<Header status={status}>{title}</Header>
+					<Body>{children === undefined && message === '' ? '(currenly no information)' : children}
+						{message !== "" && (
+							<p>{message}</p>
+						)}
+					</Body>
+					{allowClosing && (
+						<>
+							<Button onClick={handleClose}>Close</Button>
+							<Clear />
+						</>
+					)}
+				</Container >
+			)}
+		</>
 	)
 }
