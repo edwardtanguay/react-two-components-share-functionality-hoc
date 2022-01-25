@@ -1,4 +1,14 @@
-const PageCustomers = ({InfoBox, customers}) => {
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
+
+const PageCustomers = ({ InfoBox, loadData }) => {
+	const [customers, setCustomers] = useState([]);
+
+	useEffect(async () => {
+		const _customers = await loadData('https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json');
+		setCustomers([..._customers]);
+	}, []);
+
 	return (
 		<>
 			<h1>{customers.length} Customers</h1>

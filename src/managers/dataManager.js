@@ -1,5 +1,9 @@
 import employees from '../data/employees.json';
-import customers from '../data/customers.json';
+
+const loadData = async (url) => {
+	const response = await fetch(url);
+	return await response.json();
+}
 
 const getLocalUK = () => {
 	return employees.filter(emp => emp.address.country === 'UK');
@@ -11,6 +15,6 @@ const getLocalUSA = () => {
 
 export const dataManager = Component => {
 	return (props) => {
-		return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} employees={employees} customers={customers} />
+		return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} employees={employees} loadData={loadData} />
 	}
 }
