@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 
 // TODO: implement env variables
 
+// dev variables
+const secondsWaitToEmulate = 3;
+
+
 const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
 
 const Loading = ({ message }) => {
@@ -16,14 +20,24 @@ const Loading = ({ message }) => {
 	)
 };
 
+const fetchCustomers = async () => {
+	const response = await fetch(url);
+	return await response.json();
+}
+
 export const apiDataManager = Component => (props) => {
-	const [data, setData] = useState(null);
+	const [customers, setCustomers] = useState(null);
+	// const [employees, setEmployees] = useState(null);
+
+	const getUkCustomers = () => {
+		return customers.filter(emp => emp.address.country === 'UK');
+	}
+
 	useEffect(() => {
-		(async () => {
-			const response = await fetch(url);
-			const data = await response.json();
-			setData(data);
-		})();
+		setTimeout(async () => {
+			setCustomers(await fetchCustomers());
+		}, secondsWaitToEmulate * 1000);
 	}, []);
-	return !data ? <Loading/> : <Component {...props} customers={data} />
+
+	return !customers ? <Loading /> : <Component {...props} customers={customers} ukCustomers={getUkCustomers()} />
 }
