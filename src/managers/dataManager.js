@@ -25,7 +25,7 @@ const fetchCustomers = async () => {
 	return await response.json();
 }
 
-export const apiDataManager = Component => (props) => {
+export const dataManager = Component => (props) => {
 	const [customers, setCustomers] = useState(null);
 	// const [employees, setEmployees] = useState(null);
 

@@ -4,13 +4,13 @@ import Nav from './components/Nav';
 import _PageHome from './pages/PageHome';
 import _PageEmployees from './pages/PageEmployees';
 import _PageCustomers from './pages/PageCustomers';
-import { apiDataManager } from './managers/apiDataManager';
+import { dataManager } from './managers/dataManager';
 import { localDataManager } from './managers/localDataManager';
 import { siteManager } from './managers/siteManager';
 
 const PageHome = siteManager(_PageHome);
 const PageEmployees = siteManager(localDataManager(_PageEmployees)); 
-const PageCustomers = siteManager(apiDataManager(_PageCustomers)); 
+const PageCustomers = siteManager(dataManager(_PageCustomers)); 
 
 function App() {
 	return (
