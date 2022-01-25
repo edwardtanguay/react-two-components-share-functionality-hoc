@@ -1,5 +1,7 @@
 import employees from '../data/employees.json';
 
+// TODO: make it possible to wrap the API call with a TimeOut for testing purposes
+
 const loadData = async (url) => {
 	const response = await fetch(url);
 	return await response.json();

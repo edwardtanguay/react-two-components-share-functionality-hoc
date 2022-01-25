@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
+const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
+
 const PageCustomers = ({ InfoBox, loadData }) => {
 	const [customers, setCustomers] = useState([]);
 
 	useEffect(async () => {
-		const _customers = await loadData('https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json');
+		const _customers = await loadData(url);
 		setCustomers([..._customers]);
 	}, []);
 
