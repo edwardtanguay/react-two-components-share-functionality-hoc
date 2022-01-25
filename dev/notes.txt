@@ -1,7 +1,10 @@
 - .. combine api and local dataManager
 	- x combine timeout and api call
-	- .. get datafunctions getUKcustomers to be sent as well
-	- spinner in
+	- x get datafunctions getUKcustomers to be sent as well
+	- employees in dataManager
+		- config for secondsWaitToEmulate
+	- .. spinner in
+	- organize dataManager
 	- implement three environments: dev, test, production
 
 - dataManager
