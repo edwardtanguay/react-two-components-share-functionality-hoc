@@ -1,7 +1,7 @@
 - .. combine api and local dataManager
 	- x combine timeout and api call
 	- x get datafunctions getUKcustomers to be sent as well
-	- employees in dataManager
+	- .. employees in dataManager
 		- config for secondsWaitToEmulate
 	- .. spinner in
 	- organize dataManager
