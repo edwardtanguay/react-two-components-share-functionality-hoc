@@ -1,6 +1,6 @@
-import employees from '../data/employees.json';
-
 // TODO: make it possible to wrap the API call with a TimeOut for testing purposes
+
+// const env = 'dev';
 
 const Loading = ({message}) => {
     return (
@@ -16,16 +16,8 @@ const loadData = async (url) => {
 	return await response.json();
 }
 
-const getLocalUK = () => {
-	return employees.filter(emp => emp.address.country === 'UK');
-}
-
-const getLocalUSA = () => {
-	return employees.filter(emp => emp.address.country === 'USA');
-}
-
 export const apiDataManager = Component => {
 	return (props) => {
-		return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} employees={employees} loadData={loadData} />
+		return <Component {...props} loadData={loadData} />
 	}
 }

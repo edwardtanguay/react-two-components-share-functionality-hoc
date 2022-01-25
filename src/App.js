@@ -3,7 +3,7 @@ import './App.scss';
 import Nav from './components/Nav';
 import _PageHome from './pages/PageHome';
 import _PageEmployees from './pages/PageEmployees';
-import _PageCustomers from './pages/PageCustomers';
+// import _PageCustomers from './pages/PageCustomers';
 // import { apiDataManager } from './managers/apiDataManager';
 import { localDataManager } from './managers/localDataManager';
 import { siteManager } from './managers/siteManager';
