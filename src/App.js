@@ -4,12 +4,13 @@ import Nav from './components/Nav';
 import _PageHome from './pages/PageHome';
 import _PageEmployees from './pages/PageEmployees';
 import _PageCustomers from './pages/PageCustomers';
-import { dataManager } from './managers/dataManager';
+// import { apiDataManager } from './managers/apiDataManager';
+import { localDataManager } from './managers/localDataManager';
 import { siteManager } from './managers/siteManager';
 
 const PageHome = siteManager(_PageHome);
-const PageEmployees = siteManager(dataManager(_PageEmployees)); 
-const PageCustomers = siteManager(dataManager(_PageCustomers)); 
+const PageEmployees = siteManager(localDataManager(_PageEmployees)); 
+// const PageCustomers = siteManager(apiDataManager(_PageCustomers)); 
 
 function App() {
 	return (
@@ -19,7 +20,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<PageHome />} />
 					<Route path="employees" element={<PageEmployees />} />
-					<Route path="customers" element={<PageCustomers />} />
+					{/* <Route path="customers" element={<PageCustomers />} /> */}
 				</Routes>
 			</div>
 		</div>
