@@ -16,18 +16,6 @@ const Loading = ({ message }) => {
 	)
 };
 
-const loadData = async (url) => {
-	const response = await fetch(url);
-	return await response.json();
-}
-
-const fetchData = async () => {
-	const response = await fetch(url);
-	const data = await response.json();
-	console.log(data);
-	return data;
-};
-
 export const apiDataManager = Component => (props) => {
 	const [data, setData] = useState(null);
 	useEffect(() => {

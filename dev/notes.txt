@@ -1,3 +1,9 @@
+- .. combine api and local dataManager
+	- combine timeout and api call
+	- spinner in
+	- get datafunctions getUKcustomers to be sent as well
+	- implement three environments: dev, test, production
+
 - dataManager
 	- API with state variables to tell the components when what data is loaded
 	- (parameter URL for API)
