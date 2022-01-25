@@ -13,5 +13,4 @@ const PageCustomers = ({ InfoBox, customers, ukCustomers }) => {
 	)
 }
 
-PageCustomers.apiData = ['customers', 'employees', 'yearlyReport'];
 export default PageCustomers;

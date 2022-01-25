@@ -29,6 +29,8 @@ export const dataManager = Component => (props) => {
 	const [customers, setCustomers] = useState(null);
 	// const [employees, setEmployees] = useState(null);
 
+	console.log(Component.name);
+
 	const getUkCustomers = () => {
 		return customers.filter(emp => emp.address.country === 'UK');
 	}
