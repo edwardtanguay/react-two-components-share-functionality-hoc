@@ -1,14 +1,19 @@
+import { useState, useEffect } from 'react';
 // TODO: make it possible to wrap the API call with a TimeOut for testing purposes
 
-// const env = 'dev';
+// TODO: timeout with api call: https://dev.to/reenydavidson/settimeout-in-useeffect-api-call-data-fetching-j33
 
-const Loading = ({message}) => {
-    return (
-        <>
-            <h2>{message}</h2>
-            {/* <p><FaSpinner className="spinner" /></p> */}
-        </>
-    )
+// TODO: implement env variables
+
+const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
+
+const Loading = ({ message }) => {
+	return (
+		<>
+			<h2>{message}</h2>
+			{/* <p><FaSpinner className="spinner" /></p> */}
+		</>
+	)
 };
 
 const loadData = async (url) => {
@@ -16,8 +21,21 @@ const loadData = async (url) => {
 	return await response.json();
 }
 
-export const apiDataManager = Component => {
-	return (props) => {
-		return <Component {...props} loadData={loadData} />
-	}
+const fetchData = async () => {
+	const response = await fetch(url);
+	const data = await response.json();
+	console.log(data);
+	return data;
+};
+
+export const apiDataManager = Component => (props) => {
+	const [data, setData] = useState(null);
+	useEffect(() => {
+		(async () => {
+			const response = await fetch(url);
+			const data = await response.json();
+			setData(data);
+		})();
+	}, []);
+	return !data ? <Loading/> : <Component {...props} customers={data} />
 }

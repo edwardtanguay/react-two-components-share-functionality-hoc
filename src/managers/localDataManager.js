@@ -8,8 +8,6 @@ const getLocalUSA = () => {
 	return employees.filter(emp => emp.address.country === 'USA');
 }
 
-export const localDataManager = Component => {
-	return (props) => {
-		return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} employees={employees} />
-	}
+export const localDataManager = Component => props => {
+	return <Component {...props} getLocalUK={getLocalUK} getLocalUSA={getLocalUSA} employees={employees} />
 }

@@ -1,16 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
 
-const PageCustomers = ({ InfoBox, loadData }) => {
-	const [customers, setCustomers] = useState([]);
-
-	useEffect(async () => {
-		const _customers = await loadData(url);
-		setCustomers([..._customers]);
-	}, []);
-
+const PageCustomers = ({ InfoBox, customers}) => {
+	console.log('nnn', customers);
 	return (
 		<>
 			<h1>{customers.length} Customers</h1>
@@ -22,4 +15,5 @@ const PageCustomers = ({ InfoBox, loadData }) => {
 	)
 }
 
+PageCustomers.apiData = ['customers', 'employees', 'yearlyReport'];
 export default PageCustomers;
