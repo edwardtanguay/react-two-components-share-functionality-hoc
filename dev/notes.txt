@@ -16,3 +16,8 @@
 	- implement caching in DataManager
 	- implement decoration properties in e.g. employees
 	- show testing and development modes on screen
+	- put minutesToCacheData in config
+	- example of two pages using shoppingCart
+		- page 1: items
+		- page 2: bulkItems
+		
