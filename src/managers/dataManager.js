@@ -39,5 +39,5 @@ export const dataManager = Component => (props) => {
 		}, pageWaitingEmulationInSeconds * 1000);
 	}, []);
 
-	return !dataLoaded ? <PageLoader /> : <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} customers={customers} ukCustomers={getUkCustomers()} />
+	return !dataLoaded ? <PageLoader /> : <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} employees={employees} customers={customers} ukCustomers={getUkCustomers()} />
 }

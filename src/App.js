@@ -7,7 +7,7 @@ import _PageCustomers from './pages/PageCustomers';
 import { dataManager } from './managers/dataManager';
 import { siteManager } from './managers/siteManager';
 
-const PageHome = siteManager(_PageHome);
+const PageHome = siteManager(dataManager(_PageHome));
 const PageEmployees = siteManager(dataManager(_PageEmployees));
 const PageCustomers = siteManager(dataManager(_PageCustomers));
 
