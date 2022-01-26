@@ -15,3 +15,4 @@
 		- on dev, put timeToWait
 	- implement caching in DataManager
 	- implement decoration properties in e.g. employees
+	- show testing and development modes on screen
