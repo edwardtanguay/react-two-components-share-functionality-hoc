@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { PageLoader } from '../components/PageLoader';
 
 // dev variables
-const pageWaitingEmulationInSeconds = 1;
+const pageWaitingEmulationInSeconds = 3;
 
 const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
 
