@@ -1,11 +1,14 @@
-- .. combine api and local dataManager
+- x combine api and local dataManager
 	- x combine timeout and api call
 	- x get datafunctions getUKcustomers to be sent as well
-	- .. extract Loading to component
-	- .. include waiting spinner
-	- .. employees in dataManager
-		- .. enable mock waiting time for testing
-		- config for secondsWaitToEmulate
+	- x extract Loading to component
+	- x include waiting spinner
+	- x employees in dataManager
+
+- .. finish DataManager	
+	- .. enable mock waiting time for testing
+	- find nice fade-in (without animation) to hide blinky load icons
+	- config for secondsWaitToEmulate
 	- .. spinner in
 	- organize dataManager
 	- implement three environments: dev, test, production

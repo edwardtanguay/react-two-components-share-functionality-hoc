@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { PageLoader } from '../components/PageLoader';
 
 // dev variables
-const pageWaitingEmulationInSeconds = 3;
+const pageWaitingEmulationInSeconds = 0;
 
 const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
 
@@ -17,12 +17,10 @@ const fetchCustomers = async () => {
 }
 
 export const dataManager = Component => (props) => {
+	const [dataLoaded, setDataLoaded] = useState(false);
 	const [customers, setCustomers] = useState(null);
 	const [employees, setEmployees] = useState(_employees);
 
-	console.log(Component.name);
-
-	// EMPLOYEE FUNCTIONS
 	const getUkEmployees = () => {
 		return employees.filter(emp => emp.address.country === 'UK');
 	}
@@ -31,26 +29,17 @@ export const dataManager = Component => (props) => {
 		return employees.filter(emp => emp.address.country === 'USA');
 	}
 
-	// CUSTOMER FUNCTIONS
 	const getUkCustomers = () => {
 		return customers.filter(emp => emp.address.country === 'UK');
 	}
 
 	useEffect(() => {
 		setTimeout(async () => {
-			if (Component.name === 'PageEmployees') {
-				setEmployees(employees);
-			}
-			if (Component.name === 'PageCustomers') {
-				setCustomers(await fetchCustomers());
-			}
+			setEmployees(employees);
+			setCustomers(await fetchCustomers());
+			setDataLoaded(true);
 		}, pageWaitingEmulationInSeconds * 1000);
 	}, []);
 
-	if (Component.name === 'PageEmployees') {
-		return <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} />
-	}
-	if (Component.name === 'PageCustomers') {
-		return !customers ? <PageLoader /> : <Component {...props} customers={customers} ukCustomers={getUkCustomers()} />
-	}
+	return !dataLoaded ? <PageLoader /> : <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} customers={customers} ukCustomers={getUkCustomers()} />
 }
