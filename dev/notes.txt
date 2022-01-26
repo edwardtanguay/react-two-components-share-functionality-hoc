@@ -6,18 +6,8 @@
 	- x employees in dataManager
 
 - .. finish DataManager	
-	- .. enable mock waiting time for testing
-	- find nice fade-in (without animation) to hide blinky load icons
+	- x enable mock waiting time for testing
+	- .. find nice fade-in (without animation) to hide blinky load icons
 	- config for secondsWaitToEmulate
-	- .. spinner in
-	- organize dataManager
 	- implement three environments: dev, test, production
-	- make a page which uses both data sources: employees and customers
-
-- dataManager
-	- API with state variables to tell the components when what data is loaded
-	- (parameter URL for API)
-- itemPageManager
-	- search
-	- URL modification
-	- etc. (see items-page project)
+	- Home page: use employees and customers

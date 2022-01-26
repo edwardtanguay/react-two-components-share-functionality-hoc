@@ -1,5 +1,3 @@
-// TODO: make it possible to wrap the API call with a TimeOut for testing purposes
-// TODO: implement env variables
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import _employees from '../data/employees.json';
