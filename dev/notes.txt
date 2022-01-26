@@ -1,12 +1,15 @@
 - .. combine api and local dataManager
 	- x combine timeout and api call
 	- x get datafunctions getUKcustomers to be sent as well
+	- .. extract Loading to component
+	- .. include waiting spinner
 	- .. employees in dataManager
 		- .. enable mock waiting time for testing
 		- config for secondsWaitToEmulate
 	- .. spinner in
 	- organize dataManager
 	- implement three environments: dev, test, production
+	- make a page which uses both data sources: employees and customers
 
 - dataManager
 	- API with state variables to tell the components when what data is loaded

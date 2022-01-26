@@ -4,20 +4,12 @@
 
 import _employees from '../data/employees.json';
 import { useState, useEffect } from 'react';
+import { PageLoader } from '../components/PageLoader';
 
 // dev variables
 const pageWaitingEmulationInSeconds = 1;
 
 const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
-
-const Loading = ({ message }) => {
-	return (
-		<>
-			<h2>{message}</h2>
-			{/* <p><FaSpinner className="spinner" /></p> */}
-		</>
-	)
-};
 
 const fetchCustomers = async () => {
 	const response = await fetch(url);
@@ -46,11 +38,11 @@ export const dataManager = Component => (props) => {
 
 	useEffect(() => {
 		setTimeout(async () => {
-			if (Component.name === 'PageCustomers') {
-				setCustomers(await fetchCustomers());
-			}
 			if (Component.name === 'PageEmployees') {
 				setEmployees(employees);
+			}
+			if (Component.name === 'PageCustomers') {
+				setCustomers(await fetchCustomers());
 			}
 		}, pageWaitingEmulationInSeconds * 1000);
 	}, []);
@@ -59,6 +51,6 @@ export const dataManager = Component => (props) => {
 		return <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} />
 	}
 	if (Component.name === 'PageCustomers') {
-		return !customers ? <Loading /> : <Component {...props} customers={customers} ukCustomers={getUkCustomers()} />
+		return !customers ? <PageLoader /> : <Component {...props} customers={customers} ukCustomers={getUkCustomers()} />
 	}
 }
