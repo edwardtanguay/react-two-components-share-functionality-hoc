@@ -8,6 +8,9 @@
 - .. finish DataManager	
 	- x enable mock waiting time for testing
 	- .. find nice fade-in (without animation) to hide blinky load icons
+		- x got errors: https://www.npmjs.com/package/react-fade
+		- x got errors: https://www.npmjs.com/package/react-fade-container
+		
 	- config for secondsWaitToEmulate
 	- implement three environments: dev, test, production
 	- Home page: use employees and customers
