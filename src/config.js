@@ -11,8 +11,8 @@ class Config {
 	getCurrentEnvironmentIdCode() {
 		// return 'development';
 		// return 'testing';
-		// return 'production';
-		return process.env.REACT_APP_ENVIRONMENT;
+		return 'production';
+		// return process.env.REACT_APP_ENVIRONMENT;
 	}
 }
 
