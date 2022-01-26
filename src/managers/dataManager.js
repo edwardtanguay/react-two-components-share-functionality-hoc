@@ -1,8 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
-import _employees from '../data/employees.json';
 import { useState, useEffect } from 'react';
 import { PageLoader } from '../components/PageLoader';
+import { SmartConfig } from '../classes/smartConfig';
+console.log(SmartConfig.instantiate().getDataSources());
+const fileName = 'employees.json';
+// const _employees = (await import('../data/' + fileName));
+const _employees = require (`../data/${fileName}`);
 
 // dev variables
 const pageWaitingEmulationInSeconds = 0;
