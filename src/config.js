@@ -4,6 +4,8 @@ class Config {
 
 	constructor(config) {
 		this.config = config;
+		this.mockPageWaitTime = 0;
+		this.dataSources = this.config.environment[this.getCurrentEnvironmentIdCode()].data;
 	}
 
 	getCurrentEnvironmentIdCode() {
@@ -11,10 +13,6 @@ class Config {
 		// return 'testing';
 		// return 'production';
 		return process.env.REACT_APP_ENVIRONMENT;
-	}
-
-	getDataSources() {
-		return this.config.environment[this.getCurrentEnvironmentIdCode()].data;
 	}
 }
 

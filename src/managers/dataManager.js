@@ -3,13 +3,8 @@ import { useState, useEffect } from 'react';
 import { PageLoader } from '../components/PageLoader';
 import { config } from '../config';
 
-const dataSources = config.getDataSources();
-
-const _employees = dataSources.employees.startsWith('http') ? [] : require(`../data/${dataSources.employees}`);
-const _customers = dataSources.customers.startsWith('http') ? [] : require(`../data/${dataSources.customers}`);
-
-// dev variables
-const pageWaitingEmulationInSeconds = 0;
+const _employees = config.dataSources.employees.startsWith('http') ? [] : require(`../data/${config.dataSources.employees}`);
+const _customers = config.dataSources.customers.startsWith('http') ? [] : require(`../data/${config.dataSources.customers}`);
 
 const fetchData = async (url) => {
 	const response = await fetch(url);
@@ -35,14 +30,14 @@ export const dataManager = Component => (props) => {
 
 	useEffect(() => {
 		setTimeout(async () => {
-			if (dataSources.employees.startsWith('http')) {
-				setEmployees(await fetchData(dataSources.employees));
+			if (config.dataSources.employees.startsWith('http')) {
+				setEmployees(await fetchData(config.dataSources.employees));
 			}
-			if (dataSources.customers.startsWith('http')) {
-				setCustomers(await fetchData(dataSources.customers));
+			if (config.dataSources.customers.startsWith('http')) {
+				setCustomers(await fetchData(config.dataSources.customers));
 			}
 			setDataLoaded(true);
-		}, pageWaitingEmulationInSeconds * 1000);
+		}, config.mockPageWaitTime * 1000);
 	}, []);
 
 	return !dataLoaded ? <PageLoader /> : <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} employees={employees} customers={customers} ukCustomers={getUkCustomers()} />
