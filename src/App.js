@@ -8,8 +8,8 @@ import { dataManager } from './managers/dataManager';
 import { siteManager } from './managers/siteManager';
 
 const PageHome = siteManager(_PageHome);
-const PageEmployees = siteManager(dataManager(_PageEmployees)); 
-const PageCustomers = siteManager(dataManager(_PageCustomers)); 
+const PageEmployees = siteManager(dataManager(_PageEmployees));
+const PageCustomers = siteManager(dataManager(_PageCustomers));
 
 function App() {
 	return (
