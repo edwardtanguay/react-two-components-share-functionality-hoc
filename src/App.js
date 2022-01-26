@@ -5,11 +5,10 @@ import _PageHome from './pages/PageHome';
 import _PageEmployees from './pages/PageEmployees';
 import _PageCustomers from './pages/PageCustomers';
 import { dataManager } from './managers/dataManager';
-import { localDataManager } from './managers/localDataManager';
 import { siteManager } from './managers/siteManager';
 
 const PageHome = siteManager(_PageHome);
-const PageEmployees = siteManager(localDataManager(_PageEmployees)); 
+const PageEmployees = siteManager(dataManager(_PageEmployees)); 
 const PageCustomers = siteManager(dataManager(_PageCustomers)); 
 
 function App() {

@@ -1,7 +1,4 @@
-const PageEmployees = ({getLocalUK, getLocalUSA, InfoBox}) => {
-
-	const ukEmployees = getLocalUK();
-	const usaEmployees = getLocalUSA();
+const PageEmployees = ({ukEmployees, usaEmployees, InfoBox}) => {
 
 	return (
 		<>

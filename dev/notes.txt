@@ -2,6 +2,7 @@
 	- x combine timeout and api call
 	- x get datafunctions getUKcustomers to be sent as well
 	- .. employees in dataManager
+		- .. enable mock waiting time for testing
 		- config for secondsWaitToEmulate
 	- .. spinner in
 	- organize dataManager

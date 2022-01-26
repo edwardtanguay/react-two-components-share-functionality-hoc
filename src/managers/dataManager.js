@@ -1,14 +1,12 @@
+// TODO: make it possible to wrap the API call with a TimeOut for testing purposes
+// TODO: implement env variables
 /* eslint-disable react-hooks/exhaustive-deps */
 
+import _employees from '../data/employees.json';
 import { useState, useEffect } from 'react';
-// TODO: make it possible to wrap the API call with a TimeOut for testing purposes
-
-// TODO: timeout with api call: https://dev.to/reenydavidson/settimeout-in-useeffect-api-call-data-fetching-j33
-
-// TODO: implement env variables
 
 // dev variables
-const secondsWaitToEmulate = 1;
+const pageWaitingEmulationInSeconds = 1;
 
 const url = 'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/customers.json';
 
@@ -28,11 +26,19 @@ const fetchCustomers = async () => {
 
 export const dataManager = Component => (props) => {
 	const [customers, setCustomers] = useState(null);
-	const [employees, setEmployees] = useState(null);
+	const [employees, setEmployees] = useState(_employees);
 
 	console.log(Component.name);
 
 	// EMPLOYEE FUNCTIONS
+	const getUkEmployees = () => {
+		return employees.filter(emp => emp.address.country === 'UK');
+	}
+
+	const getUsaEmployees = () => {
+		return employees.filter(emp => emp.address.country === 'USA');
+	}
+
 	// CUSTOMER FUNCTIONS
 	const getUkCustomers = () => {
 		return customers.filter(emp => emp.address.country === 'UK');
@@ -46,9 +52,12 @@ export const dataManager = Component => (props) => {
 			if (Component.name === 'PageEmployees') {
 				setEmployees(employees);
 			}
-		}, secondsWaitToEmulate * 1000);
+		}, pageWaitingEmulationInSeconds * 1000);
 	}, []);
 
+	if (Component.name === 'PageEmployees') {
+		return <Component {...props} ukEmployees={getUkEmployees()} usaEmployees={getUsaEmployees()} />
+	}
 	if (Component.name === 'PageCustomers') {
 		return !customers ? <Loading /> : <Component {...props} customers={customers} ukCustomers={getUkCustomers()} />
 	}
