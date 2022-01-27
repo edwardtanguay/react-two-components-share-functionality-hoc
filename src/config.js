@@ -6,13 +6,14 @@ class Config {
 		this.config = config;
 		this.mockPageWaitTime = 0;
 		this.dataSources = this.config.environment[this.getCurrentEnvironmentIdCode()].data;
+		this.environment = this.getCurrentEnvironmentIdCode();
 	}
 
 	getCurrentEnvironmentIdCode() {
-		// return 'development';
+		return 'development';
 		// return 'testing';
 		// return 'production';
-		return process.env.REACT_APP_ENVIRONMENT;
+		// return process.env.REACT_APP_ENVIRONMENT;
 	}
 }
 
