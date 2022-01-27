@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { PageLoader } from '../components/PageLoader';
 import { config } from '../config';
 
-const _employees = config.dataSources.employees.startsWith('http') ? [] : require(`../data/${config.dataSources.employees}`);
-const _customers = config.dataSources.customers.startsWith('http') ? [] : require(`../data/${config.dataSources.customers}`);
+let _employees = config.dataSources.employees.startsWith('http') ? [] : require(`../data/${config.dataSources.employees}`);
+let _customers = config.dataSources.customers.startsWith('http') ? [] : require(`../data/${config.dataSources.customers}`);
 
 const fetchData = async (url) => {
 	const response = await fetch(url);
@@ -13,8 +13,8 @@ const fetchData = async (url) => {
 
 export const dataManager = Component => (props) => {
 	const [dataLoaded, setDataLoaded] = useState(false);
-	const [employees, setEmployees] = useState(_employees);
-	const [customers, setCustomers] = useState(_customers);
+	const [employees, setEmployees] = useState([]);
+	const [customers, setCustomers] = useState([]);
 
 	const getUkEmployees = () => {
 		return employees.filter(emp => emp.address.country === 'UK');
@@ -28,19 +28,24 @@ export const dataManager = Component => (props) => {
 		return customers.filter(emp => emp.address.country === 'UK');
 	}
 
-	useEffect(() => {
-		employees.map(m => m.fullName = `${m.firstName} ${m.lastName}`);
-		setEmployees([...employees]);
-	}, [employees]);
+	const prepareEmployees = (_employees) => {
+		_employees.map(m => m.fullName = `${m.firstName} ${m.lastName}`);
+		setEmployees([..._employees]);
+	}
 
+	const prepareCustomers = (_customers) => {
+		setCustomers([..._customers]);
+	}
 	useEffect(() => {
 		setTimeout(async () => {
 			if (config.dataSources.employees.startsWith('http')) {
-				setEmployees(await fetchData(config.dataSources.employees));
+				_employees = await fetchData(config.dataSources.employees);
 			}
 			if (config.dataSources.customers.startsWith('http')) {
-				setCustomers(await fetchData(config.dataSources.customers));
+				_customers = await fetchData(config.dataSources.customers);
 			}
+			prepareEmployees(_employees);
+			prepareCustomers(_customers);
 			setDataLoaded(true);
 		}, config.mockPageWaitTime * 1000);
 	}, []);
