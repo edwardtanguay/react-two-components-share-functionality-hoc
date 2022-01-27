@@ -13,7 +13,7 @@ class Config {
 		// return 'development';
 		// return 'testing';
 		// return 'production';
-		return process.env.REACT_APP_ENVIRONMENT;
+		return process.env.REACT_APP_ENVIRONMENT ? process.env.REACT_APP_ENVIRONMENT : 'production';
 	}
 }
 
