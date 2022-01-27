@@ -1,5 +1,4 @@
 const PageEmployees = ({ukEmployees, usaEmployees, InfoBox}) => {
-
 	return (
 		<>
 			<h1>Employees</h1>
