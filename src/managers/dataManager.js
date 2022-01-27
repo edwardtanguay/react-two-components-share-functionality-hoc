@@ -29,6 +29,11 @@ export const dataManager = Component => (props) => {
 	}
 
 	useEffect(() => {
+		employees.map(m => m.fullName = `${m.firstName} ${m.lastName}`);
+		setEmployees([...employees]);
+	}, [employees]);
+
+	useEffect(() => {
 		setTimeout(async () => {
 			if (config.dataSources.employees.startsWith('http')) {
 				setEmployees(await fetchData(config.dataSources.employees));

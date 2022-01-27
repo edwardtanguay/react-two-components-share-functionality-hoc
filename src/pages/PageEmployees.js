@@ -7,7 +7,7 @@ const PageEmployees = ({ukEmployees, usaEmployees, InfoBox}) => {
 			<ul>
 			{ukEmployees.map((emp,i) => {
 				return (
-					<li key={i}>{emp.firstName} {emp.lastName}</li>
+					<li key={i}>{emp.fullName}</li>
 				)
 			})}
 			</ul>
