@@ -7,7 +7,7 @@ const PageHome = ({ InfoBox, employees, customers, config }) => {
 			<InfoBox message="The sales department will be closed on Monday." allowClosing="true" />
 			{config.getCurrentEnvironmentIdCode() !== 'production' && (
 				<div className="onlineVersion">
-					<p>see the <a href="https://react-two-components-share-functionality-hoc.netlify.app">online/production version of this app</a></p>
+					<p>see the <a target="_blank" href="https://react-two-components-share-functionality-hoc.netlify.app" rel="noreferrer">online/production version of this app</a></p>
 				</div>
 			)}
 		</>

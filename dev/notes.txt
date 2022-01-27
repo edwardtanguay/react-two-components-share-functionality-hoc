@@ -11,12 +11,12 @@
 		- x got errors: https://www.npmjs.com/package/react-fade
 		- x got errors: https://www.npmjs.com/package/react-fade-container
 	- x Home page: use employees and customers
-	- .. implement three environments: dev, test, production
-		- .. on dev, put timeToWait
+	- x implement three environments: dev, test, production
+		- x on dev, put timeToWait
+	- x show testing and development modes on screen
+	- x put minutesToCacheData in config
 	- implement caching in DataManager
 	- implement decoration properties in e.g. employees
-	- show testing and development modes on screen
-	- put minutesToCacheData in config
 	- example of two pages using shoppingCart
 		- page 1: items
 		- page 2: bulkItems
