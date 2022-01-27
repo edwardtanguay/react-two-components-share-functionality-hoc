@@ -2,8 +2,8 @@
 	"environment": {
 		"development": {
 			"data": {
-				"employees": "employees.json",
-				"customers": "customers.json"
+				"employees": "dev_employees.json",
+				"customers": "dev_customers.json"
 			}
 		},
 		"testing": {
