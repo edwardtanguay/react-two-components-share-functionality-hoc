@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 const PageCustomers = ({ InfoBox, customers, ukCustomers }) => {
 	return (
 		<>
@@ -12,5 +10,4 @@ const PageCustomers = ({ InfoBox, customers, ukCustomers }) => {
 		</>
 	)
 }
-
 export default PageCustomers;

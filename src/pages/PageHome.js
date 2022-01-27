@@ -13,5 +13,4 @@ const PageHome = ({ InfoBox, employees, customers, config }) => {
 		</>
 	)
 }
-
 export default PageHome;
