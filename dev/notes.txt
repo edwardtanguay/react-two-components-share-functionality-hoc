@@ -15,7 +15,8 @@
 		- x on dev, put timeToWait
 	- x show testing and development modes on screen
 	- x put minutesToCacheData in config
-	- .. implement decoration properties in e.g. employees
+	- x implement decoration properties in e.g. employees
+	- .. site-wide variable test
 	- example of two pages using shoppingCart
 		- page 1: items
 		- page 2: bulkItems
