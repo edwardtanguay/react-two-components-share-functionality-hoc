@@ -15,7 +15,7 @@ const Nav = ({ config }) => {
 
 	const SiteMessage = styled.div`
 background: ${getBackgroundColor()};
-margin: 5px 0 0 0;
+margin: 0 0 5px 0;
 font-size: 1rem;
 padding: 2px;
 border-radius: 3px;
@@ -25,6 +25,9 @@ font-variant: small-caps;
 
 	return (
 		<>
+			{config.environment !== 'production' && (
+				<SiteMessage>{config.environment}</SiteMessage>
+			)}
 			<nav>
 				<ul>
 					<li><NavLink to="/">Home</NavLink></li>
@@ -32,9 +35,6 @@ font-variant: small-caps;
 					<li><NavLink to="customers">Customers</NavLink></li>
 				</ul>
 			</nav>
-			{config.environment !== 'production' && (
-				<SiteMessage>{config.environment}</SiteMessage>
-			)}
 		</>
 	)
 }

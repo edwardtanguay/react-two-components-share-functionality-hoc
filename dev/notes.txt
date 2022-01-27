@@ -15,7 +15,6 @@
 		- x on dev, put timeToWait
 	- x show testing and development modes on screen
 	- x put minutesToCacheData in config
-	- implement caching in DataManager
 	- implement decoration properties in e.g. employees
 	- example of two pages using shoppingCart
 		- page 1: items
